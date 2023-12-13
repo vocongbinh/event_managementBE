@@ -1,11 +1,11 @@
 import express, { Application, Request, Response } from "express";
+import serverless from 'serverless-http';
 const app: Application = express();
 import dotenv from "dotenv";
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const routes = require("../src/routes");
-const serverless = require("serverless-http");
 
 
 dotenv.config();
@@ -23,11 +23,6 @@ mongoose
   .catch((err: Error) => {
     console.log(err);
   });
-  
 
-routes(app, '/.netlify/functions/api');
-// app.use('/.netlify/functions/api/book',)
-// const server = app.listen(process.env.PORT || 3000, () =>
-//   console.log(`Example app listening on port ${process.env.PORT || 3000}!`)
-// );
-module.exports.handler =serverless(app);
+routes(app);
+export const handler = serverless(app);
