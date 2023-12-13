@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const routes = require("./routes");
+const routes = require("../src/routes");
 const serverless = require("serverless-http");
 
 dotenv.config();
