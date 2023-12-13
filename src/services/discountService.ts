@@ -2,7 +2,7 @@ import Discount from "../models/Discount";
 import DiscountUsed from "../models/DiscountUsed";
 
 const discountService = {
-  checkDiscountValid: (code: string, showtimeId: string, userId: string) => {
+  checkDiscountValid: (code: string, showtimeId: string, userId: string) => { 
     return new Promise(async (resolve, reject) => {
       try {
         const discount: any = await Discount.findOne({ showtimeId, code });
