@@ -1,12 +1,12 @@
 {
   "name": "event_manager_backend",
   "version": "1.0.0",
-  "description": "An Event Manager Backend",
+  "descripti  on": "An Event Manager Backend",
   "main": "./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./src/index.ts",
-    "build": "webpack"
+    "build": "./node_modules/.bin/netlify-lambda build src"
   },
   "repository": {
     "type": "git",
@@ -43,6 +43,7 @@
     "nodemailer": "^6.9.7",
     "nodemon": "^3.0.1",
     "seatsio": "^81.4.0",
+    "serverless-http": "^3.2.0",
     "socket.io": "^4.7.2",
     "ts-loader": "^9.5.1",
     "twilio": "^4.19.0"
