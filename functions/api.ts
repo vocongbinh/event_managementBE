@@ -7,6 +7,7 @@ const cors = require("cors");
 const routes = require("../src/routes");
 const serverless = require("serverless-http");
 
+
 dotenv.config();
 app.use(cors({ credentials: true, origin: true }));
 app.use(bodyParser.json());
@@ -22,9 +23,10 @@ mongoose
   .catch((err: Error) => {
     console.log(err);
   });
+  
 
-routes(app);
-
+routes(app, '/.netlify/functions/api');
+// app.use('/.netlify/functions/api/book',)
 // const server = app.listen(process.env.PORT || 3000, () =>
 //   console.log(`Example app listening on port ${process.env.PORT || 3000}!`)
 // );

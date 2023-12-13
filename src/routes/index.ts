@@ -12,19 +12,19 @@ const chartRouter = require("./chart");
 const imageRouter = require("./image");
 const bookingRouter = require("./booking");
 const stageRouter = require("./stage");
-function Routes(app: Application) {
-  app.use("/api", authRouter);
-  app.use("/api/event", eventRouter);
-  app.use("/api/showtime", showTimeRouter);
-  app.use("/api/ticket", ticketRouter);
-  app.use("/api/address", addressRouter);
-  app.use("/api/my", myRouter);
-  app.use("/api/payment", paymentRouter);
-  app.use("/api/discount", discountRouter);
-  app.use("/api/user", userRouter);
-  app.use("/api/chart", chartRouter);
-  app.use("/api/image", imageRouter);
-  app.use("/api/stage", stageRouter);
-  app.use("/api/booking", bookingRouter);
+function Routes(app: Application, path:String) {
+  app.use(`${path}`, authRouter);
+  app.use(`${path}/event`, eventRouter);
+  app.use(`${path}/showtime`, showTimeRouter);
+  app.use(`${path}/ticket`, ticketRouter);
+  app.use(`${path}/address`, addressRouter);
+  app.use(`${path}/my`, myRouter);
+  app.use(`${path}/payment`, paymentRouter);
+  app.use(`${path}/discount`, discountRouter);
+  app.use(`${path}/user`, userRouter);
+  app.use(`${path}/chart`, chartRouter);
+  app.use(`${path}/image`, imageRouter);
+  app.use(`${path}/stage`, stageRouter);
+  app.use(`${path}/booking`, bookingRouter);
 }
 module.exports = Routes;
