@@ -9,7 +9,8 @@ const routes = require("../src/routes");
 
 
 dotenv.config();
-app.use(cors({ credentials: true, origin: true, allowedHeaders: ['Content-Type', 'Authorization'], }));
+app.options('*', cors());
+app.use(cors({ credentials: true, origin: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req: Request, res: Response): void => {

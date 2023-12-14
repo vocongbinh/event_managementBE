@@ -2,10 +2,11 @@ const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 import { Request, Response, NextFunction } from "express";
 const verifyToken = (req: Request, res: Response, next: NextFunction) => {
-  const authHeader: any = req.headers.token;
+  const authHeader: any = req.headers.authorization;
   console.log(authHeader);
   if (authHeader) {
     const token = authHeader.split(" ")[1];
+  
     jwt.verify(token, process.env.JWT_SEC, async (err: any, user: any) => {
       if (err) return res.status(403).json("Invalid token");
       req.body.user = user;
@@ -13,7 +14,7 @@ const verifyToken = (req: Request, res: Response, next: NextFunction) => {
       next();
     });
   } else {
-    return res.status(401).json("You are not authenticated");
+    return res.status(401).json(req.headers);
   }
 };
 
