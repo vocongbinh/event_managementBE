@@ -4,18 +4,18 @@ import { Request, Response, NextFunction } from "express";
 const verifyToken = (req: Request, res: Response, next: NextFunction) => {
   const authHeader: any = req.headers.authorization;
   console.log(authHeader);
-  if (authHeader) {
+  //if (authHeader) {
     const token = authHeader.split(" ")[1];
   
     jwt.verify(token, process.env.JWT_SEC, async (err: any, user: any) => {
-      if (err) return res.status(403).json("Invalid token");
+      if (err) return res.status(403).json("Invalid tokennnn");
       req.body.user = user;
       console.log(user);
       next();
     });
-  } else {
-    return res.status(401).json(req.headers);
-  }
+  // } else {
+  //   return res.status(401).json(req.headers);
+  // }
 };
 
 const verifyAndAdmin = (req: Request, res: Response, next: NextFunction) => {
