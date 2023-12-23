@@ -8,7 +8,7 @@ const verifyToken = (req: Request, res: Response, next: NextFunction) => {
    
 
     jwt.verify(authHeader, process.env.JWT_SEC, { algorithms: ['HS384'] }, async (err: any, user: any) => {
-      if (err) return res.status(403).json(authHeader);
+      if (err) return res.status(403).json(err);
       req.body.user = user;
       console.log(user);
       next();
