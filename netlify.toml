@@ -5,8 +5,8 @@ functions = "functions"
   from = "/api/*"
   status = 200
   to = "/.netlify/functions/api/:splat"
+  signed = "JWT_SEC"
 [[headers]]
   for = "/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
-     Access-Control-Allow-Headers = "Authorization"
