@@ -4,7 +4,7 @@ functions = "functions"
   force = true
   from = "/api/*"
   status = 200
-  to = "https://cute-pithivier-8b373e.netlify.app/api/:splat"
+  to = "/.netlify/functions/api/:splat"
   signed = "JWT_SEC"
 [[headers]]
   for = "/*"
