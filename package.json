@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "event_manager_backend",
   "version": "1.0.0",
   "descripti  on": "An Event Manager Backend",

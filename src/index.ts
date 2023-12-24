@@ -1,4 +1,5 @@
-import express, { Application, Request, Response } from "express";
+import express from "express";
+const {Application} = express;
 const app: Application = express();
 import dotenv from "dotenv";
 const mongoose = require("mongoose");
