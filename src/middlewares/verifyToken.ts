@@ -6,13 +6,14 @@ const verifyToken = (req: Request, res: Response, next: NextFunction) => {
   console.log(authHeader);
   if (authHeader) {
     const token = authHeader.split(" ")[1];
-
-    jwt.verify(token, async (err: any, user: any) => {
-      if (err) return res.status(403).json(err);
-      req.body.user = user;
-      console.log(user);
-      next();
-    });
+    const binh = jwt.verify(token);
+    return res.json(binh)
+    // jwt.verify(token, async (err: any, user: any) => {
+    //   if (err) return res.status(403).json(err);
+    //   req.body.user = user;
+    //   console.log(user);
+    //   next();
+    // });
   } else {
     return res.status(401).json("You are not authenticated");
   }
