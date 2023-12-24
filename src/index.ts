@@ -1,7 +1,6 @@
-import express from "express";
-const {Application} = express;
-const app: Application = express();
-import dotenv from "dotenv";
+const express = require('express') ;
+const app = express();
+const dotenv =require("dotenv");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -12,7 +11,7 @@ dotenv.config();
 app.use(cors({ credentials: true, origin: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.get("/", (req: Request, res: Response): void => {
+app.get("/", (req: any, res: any) => {
   res.send("Hello Typescript with Node.js!");
 });
 mongoose

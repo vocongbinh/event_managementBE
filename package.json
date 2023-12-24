@@ -1,8 +1,7 @@
 {
-  "type": "module",
   "name": "event_manager_backend",
   "version": "1.0.0",
-  "descripti  on": "An Event Manager Backend",
+  "description": "An Event Manager Backend",
   "main": "./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
