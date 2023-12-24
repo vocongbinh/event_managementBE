@@ -5,9 +5,9 @@ const verifyToken = (req: Request, res: Response, next: NextFunction) => {
   const authHeader: any = req.headers.token;
   console.log(authHeader);
   if (authHeader) {
-   
+    const token = authHeader.split(" ")[1];
 
-    jwt.verify(authHeader, async (err: any, user: any) => {
+    jwt.verify(token, async (err: any, user: any) => {
       if (err) return res.status(403).json(err);
       req.body.user = user;
       console.log(user);
